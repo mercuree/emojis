@@ -24,7 +24,7 @@ def get_emoji_by_code(code):
     :rtype: emojis.db.Emoji
     '''
     try:
-        return next(filter(lambda emoji: code == emoji.emoji, db.EMOJI_DB))
+        return next(iter(filter(lambda emoji: code == emoji.emoji, db.EMOJI_DB)))
     except StopIteration:
         return None
 
@@ -37,7 +37,7 @@ def get_emoji_by_alias(alias):
     :rtype: emojis.db.Emoji
     '''
     try:
-        return next(filter(lambda emoji: alias in emoji.aliases, db.EMOJI_DB))
+        return next(iter(filter(lambda emoji: alias in emoji.aliases, db.EMOJI_DB)))
     except StopIteration:
         return None
 
